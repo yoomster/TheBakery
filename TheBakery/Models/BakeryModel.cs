@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TheBakery.Models
 {
@@ -19,14 +20,24 @@ namespace TheBakery.Models
             
         }
 
-        public void SellSandwiches()
+        public void SellSandwiches(SandwichModel sandwich)
         {
-
+            SoldSandwiches.Add(sandwich);
+            SandwichesInStock.Remove(sandwich);
         }
 
-        public void CreateSandwiches()
+        public void TryCreateSandwiches()
         {
+            int maxIngredients = 5;
 
+            if (maxIngredients < 5)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Maximaal 5 ingrediënten!");
+            }
         }
     }
 }

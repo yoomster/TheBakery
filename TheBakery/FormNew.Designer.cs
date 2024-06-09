@@ -1,4 +1,6 @@
-﻿namespace DeBakery
+﻿using System;
+
+namespace DeBakery
 {
 	partial class FormNew
 	{
@@ -130,9 +132,11 @@
 
 		}
 
-		#endregion
 
-		private System.Windows.Forms.GroupBox groupBoxNewSandwich;
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBoxNewSandwich;
 		private System.Windows.Forms.ComboBox comboBoxBreadType;
 		private System.Windows.Forms.Button buttonSave;
 		private System.Windows.Forms.ListBox listBoxIngredienten;

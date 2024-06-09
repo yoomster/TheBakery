@@ -7,20 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheBakery.Models;
 
 namespace DeBakery
 {
 	public partial class FormNew : Form
 	{
-		public FormNew()
+        public SandwichModel Sandwich { get; set; } = new SandwichModel();
+        public FormNew()
 		{
 			InitializeComponent();
 		}
 
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
-			textBoxName.Text = "";
-            comboBoxBreadType.Text = 
+            Sandwich.Name = textBoxName.Text;
+            Sandwich.BreadType = comboBoxBreadType.DataSource = Enum.GetValues(typeof(BreadType));
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+			this.Close();
         }
     }
 }

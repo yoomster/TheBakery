@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheBakery.Models
 {
-    internal class SandwichModel
+    public class SandwichModel
     {
         public string Name { get; set; }
         public int Price { get; set; }
