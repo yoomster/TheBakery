@@ -82,6 +82,7 @@ namespace DeBakery
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Annuleren";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // comboBoxBreadType
             // 
@@ -126,6 +127,7 @@ namespace DeBakery
             this.Controls.Add(this.groupBoxNewSandwich);
             this.Name = "FormNew";
             this.Text = "Nieuw broodje";
+            this.Load += new System.EventHandler(this.FormNew_Load);
             this.groupBoxNewSandwich.ResumeLayout(false);
             this.groupBoxNewSandwich.PerformLayout();
             this.ResumeLayout(false);
