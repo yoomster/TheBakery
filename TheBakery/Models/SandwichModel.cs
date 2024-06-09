@@ -11,6 +11,10 @@ namespace TheBakery.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public BreadTypeEnum BreadType { get; set; }
+        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
+
+
+       
     }
 }
 

@@ -7,11 +7,10 @@ using System.Windows.Forms;
 
 namespace TheBakery.Models
 {
-    internal class BakeryModel
+    public class BakeryModel
     {
         public string Name { get; set; }
         public int Revenue { get; set; }
-        public List<IngredientModel> Ingredients { get; set; }
         public List<SandwichModel> SandwichesInStock { get; set; }
         public List<SandwichModel> SoldSandwiches { get; set; }
 
