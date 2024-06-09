@@ -160,6 +160,7 @@
             this.buttonClose.TabIndex = 7;
             this.buttonClose.Text = "Sluit";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonSave
             // 

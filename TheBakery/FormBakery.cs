@@ -16,11 +16,17 @@ namespace DeBakery
 		{
 			InitializeComponent();
 		}
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void buttonNewSandwich_Click(object sender, EventArgs e)
         {
 			FormNew createSandwichForm = new FormNew();
 			createSandwichForm.Show();
         }
+
+
     }
 }
