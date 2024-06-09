@@ -107,6 +107,7 @@ namespace DeBakery
             this.listBoxIngredienten.FormattingEnabled = true;
             this.listBoxIngredienten.Location = new System.Drawing.Point(78, 72);
             this.listBoxIngredienten.Name = "listBoxIngredienten";
+            this.listBoxIngredienten.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBoxIngredienten.Size = new System.Drawing.Size(174, 108);
             this.listBoxIngredienten.TabIndex = 1;
             // 

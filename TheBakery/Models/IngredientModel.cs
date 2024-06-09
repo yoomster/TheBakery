@@ -22,32 +22,6 @@ namespace TheBakery.Models
             return Name;
         }
 
-        public void CalculatePrice(string ingredient)
-        {
-            if (ingredient == "kip")
-            {
-                Price += 4;
-            }
-            else if (ingredient == "steak")
-            {
-                Price += 5;
-            }
-            else if (ingredient == "bacon")
-            {
-                Price += 2;
-            }
-            else if (ingredient == "Gehakt bal")
-            {
-                Price += 1;
-            }
-            else if (ingredient == "veggie burger")
-            {
-                Price += 1;
-            }
-            else if (ingredient == "gebakken ei")
-            {
-                Price += 1;
-            }
-        }
+
     }
 }

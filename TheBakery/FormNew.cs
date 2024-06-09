@@ -40,16 +40,16 @@ namespace DeBakery
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Sandwich.Name = textBoxName.Text;
-            //Sandwich.Price = ;
+            Sandwich.Price = Sandwich.CalculatePrice();
             Sandwich.BreadType = (BreadTypeEnum)comboBoxBreadType.SelectedItem;
             Sandwich.Ingredients = Ingredients;
         }
+        
 
         private void FormNew_Load(object sender, EventArgs e)
         {
             comboBoxBreadType.DataSource = Enum.GetValues(typeof(BreadTypeEnum));
             listBoxIngredienten.DataSource = Ingredients;
-
         }
     }
 }
