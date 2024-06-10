@@ -25,18 +25,50 @@ namespace TheBakery.Models
             SandwichesInStock.Remove(sandwich);
         }
 
-        public void TryCreateSandwiches()
+        public void CreateSandwiches(string name, BreadTypeEnum breadType, List<IngredientModel> ingredients)
         {
-            int maxIngredients = 5;
+            SandwichModel newSandwich = new SandwichModel
+            {
+                Name = name,
+                BreadType = breadType,
+                Ingredients = ingredients
+            };
+            SandwichesInStock.Add(newSandwich);
+        }
 
-            if (maxIngredients < 5)
+        public int CalculatePrice()
+        {
+            int output = 0;
+
+            foreach (var ingredient in Ingredients)
             {
 
+                if (ingredient.Name == "Kip")
+                {
+                    output += 4;
+                }
+                else if (ingredient.Name == "Steak")
+                {
+                    output += 5;
+                }
+                else if (ingredient.Name == "Bacon")
+                {
+                    output += 2;
+                }
+                else if (ingredient.Name == "Gehakt bal")
+                {
+                    output += 1;
+                }
+                else if (ingredient.Name == "Veggie burger")
+                {
+                    output += 1;
+                }
+                else if (ingredient.Name == "Gebakken ei")
+                {
+                    output += 1;
+                }
             }
-            else
-            {
-                MessageBox.Show("Maximaal 5 ingrediënten!");
-            }
+            return output;
         }
     }
 }
