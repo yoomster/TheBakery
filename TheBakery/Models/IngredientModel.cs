@@ -9,7 +9,7 @@ namespace TheBakery.Models
     public class IngredientModel
     {
         public string Name { get; set; }
-        private int Price { get; set; }
+        public int Price { get; set; }
 
         public IngredientModel(string name, int price)
         {
@@ -19,9 +19,7 @@ namespace TheBakery.Models
 
         public override string ToString()
         {
-            return Name;
+            return Name ;
         }
-
-
     }
 }

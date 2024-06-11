@@ -11,12 +11,12 @@ namespace TheBakery.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public BreadTypeEnum BreadType { get; set; }
-        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
+        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>(); //only the ingredients that go in this sandwich
 
         public override string ToString()
         {
             return Name;
         }
+
     }
 }
-

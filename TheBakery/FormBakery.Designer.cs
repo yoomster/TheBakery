@@ -192,6 +192,7 @@
             this.Controls.Add(this.groupBoxSandwiches);
             this.Name = "FormBakery";
             this.Text = "De Bakkerij";
+            this.Load += new System.EventHandler(this.FormBakery_Load);
             this.groupBoxSandwiches.ResumeLayout(false);
             this.groupBoxSandwiches.PerformLayout();
             this.groupBoxBroodjeDetails.ResumeLayout(false);

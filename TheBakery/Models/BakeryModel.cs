@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,8 +12,9 @@ namespace TheBakery.Models
     {
         public string Name { get; set; }
         public int Revenue { get; set; }
-        public List<SandwichModel> SandwichesInStock { get; set; }
-        public List<SandwichModel> SoldSandwiches { get; set; }
+        public List<SandwichModel> SandwichesInStock { get; set; } = new List<SandwichModel> ();
+        public List<SandwichModel> SoldSandwiches { get; set; } = new List<SandwichModel> ();
+        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>(); //all available ingredients
 
         public BakeryModel()
         {
@@ -23,7 +25,10 @@ namespace TheBakery.Models
         {
             SoldSandwiches.Add(sandwich);
             SandwichesInStock.Remove(sandwich);
+            //Add Revenue to prop
         }
+
+
 
         public void CreateSandwiches(string name, BreadTypeEnum breadType, List<IngredientModel> ingredients)
         {
@@ -36,39 +41,9 @@ namespace TheBakery.Models
             SandwichesInStock.Add(newSandwich);
         }
 
-        public int CalculatePrice()
+        public int CalculatePrice(List<IngredientModel> ingredients)
         {
-            int output = 0;
-
-            foreach (var ingredient in Ingredients)
-            {
-
-                if (ingredient.Name == "Kip")
-                {
-                    output += 4;
-                }
-                else if (ingredient.Name == "Steak")
-                {
-                    output += 5;
-                }
-                else if (ingredient.Name == "Bacon")
-                {
-                    output += 2;
-                }
-                else if (ingredient.Name == "Gehakt bal")
-                {
-                    output += 1;
-                }
-                else if (ingredient.Name == "Veggie burger")
-                {
-                    output += 1;
-                }
-                else if (ingredient.Name == "Gebakken ei")
-                {
-                    output += 1;
-                }
-            }
-            return output;
+            return ingredients.Sum(i => i.Price);
         }
     }
 }

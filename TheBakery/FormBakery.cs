@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheBakery.Models;
 
 namespace DeBakery
 {
 	public partial class FormBakery : Form
 	{
-		public FormBakery()
+        private BakeryModel bakery;
+
+        public FormBakery()
 		{
 			InitializeComponent();
-		}
+            this.bakery = new BakeryModel();
+
+        }
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,6 +32,9 @@ namespace DeBakery
 			createSandwichForm.Show();
         }
 
-
+        private void FormBakery_Load(object sender, EventArgs e)
+        {
+            listBoxSandwiches.DataSource = bakery.SandwichesInStock;
+        }
     }
 }

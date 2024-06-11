@@ -15,41 +15,63 @@ namespace DeBakery
 {
 	public partial class FormNew : Form
 	{
-        public SandwichModel Sandwich { get; set; } = new SandwichModel();
-        private List<IngredientModel> Ingredients { get; set; }
+        //GEEN PROPERTIES!! PRAAT DIRECT MET JE BAKERYMODEL!!!
+
+        public SandwichModel Sandwich { get; set; }
+        //private List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
+
+        public BakeryModel Bakery;
+
         public FormNew()
 		{
 			InitializeComponent();
-
-            Ingredients = new List<IngredientModel>
+            Bakery.Ingredients = new List<IngredientModel>
             {
                 new IngredientModel("Kip", 4),
                 new IngredientModel("Steak", 5),
                 new IngredientModel("Bacon", 2),
-                new IngredientModel("Gehakt Bal", 5),
-                new IngredientModel("Veggie Burger", 4),
-                new IngredientModel("Gebakken Ei", 2)
+                new IngredientModel("Gehakt bal", 5),
+                new IngredientModel("Veggie burger", 4),
+                new IngredientModel("Gebakken ei", 2),
+                new IngredientModel("Sla", 2),
+                new IngredientModel("Tomaat", 2),
+                new IngredientModel("ui", 2),
             };
         }
-
+        private void FormNew_Load(object sender, EventArgs e)
+        {
+            comboBoxBreadType.DataSource = Enum.GetValues(typeof(BreadTypeEnum));
+            listBoxIngredienten.DataSource = Bakery.Ingredients;
+        }
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        public void AddIngredientsToList(SandwichModel sandwich)
+        {
+            //moet alleen van sandwich
+            foreach (IngredientModel ingredient in listBoxIngredienten.SelectedItems)
+            {
+                sandwich.Ingredients.Add(ingredient);
+            }
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Sandwich.Name = textBoxName.Text;
-            Sandwich.Price = Sandwich.CalculatePrice();
-            Sandwich.BreadType = (BreadTypeEnum)comboBoxBreadType.SelectedItem;
-            Sandwich.Ingredients = Ingredients;
-        }
-        
+            SandwichModel sandwich = new SandwichModel
+            {
+                Name = textBoxName.Text,
+                BreadType = (BreadTypeEnum)comboBoxBreadType.SelectedItem,
 
-        private void FormNew_Load(object sender, EventArgs e)
-        {
-            comboBoxBreadType.DataSource = Enum.GetValues(typeof(BreadTypeEnum));
-            listBoxIngredienten.DataSource = Ingredients;
-        }
+            };
+            AddIngredientsToList(sandwich);
+
+
+
+            Bakery.SandwichesInStock.Add(sandwich);
+            
+            this.Close();
+        } 
     }
 }
