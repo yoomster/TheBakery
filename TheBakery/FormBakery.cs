@@ -13,14 +13,15 @@ namespace DeBakery
 {
 	public partial class FormBakery : Form
 	{
-        private BakeryModel bakery;
+        public BakeryModel Bakery;
 
         public FormBakery()
 		{
 			InitializeComponent();
-            this.bakery = new BakeryModel();
+            this.Bakery = new BakeryModel();
 
         }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -28,13 +29,36 @@ namespace DeBakery
 
         private void buttonNewSandwich_Click(object sender, EventArgs e)
         {
-			FormNew createSandwichForm = new FormNew();
-			createSandwichForm.Show();
+			FormNew newSandwichForm = new FormNew();
+            newSandwichForm.Bakery = Bakery;
+			DialogResult response = newSandwichForm.ShowDialog();
+
+            if (response == DialogResult.OK)
+            {
+
+            }
+            if (response == DialogResult.Cancel)
+            {
+
+            }
         }
 
         private void FormBakery_Load(object sender, EventArgs e)
         {
-            listBoxSandwiches.DataSource = bakery.SandwichesInStock;
+            RenderSandwichesInStock(Bakery.SandwichesInStock);
+        }
+
+        public void RenderSandwichesInStock(List <SandwichModel> sandwichesInStock)
+        {
+            Bakery.SandwichesInStock.Clear();
+
+            foreach (var sandwich in sandwichesInStock)
+            {
+                listBoxSandwiches.Items.Add(sandwich.Name);
+            }
+            // OR??
+
+            //listBoxSandwiches.DataSource = Bakery.SandwichesInStock;
         }
     }
 }

@@ -16,27 +16,12 @@ namespace DeBakery
 	public partial class FormNew : Form
 	{
         //GEEN PROPERTIES!! PRAAT DIRECT MET JE BAKERYMODEL!!!
-
-        public SandwichModel Sandwich { get; set; }
-        //private List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
-
         public BakeryModel Bakery;
+
 
         public FormNew()
 		{
-			InitializeComponent();
-            Bakery.Ingredients = new List<IngredientModel>
-            {
-                new IngredientModel("Kip", 4),
-                new IngredientModel("Steak", 5),
-                new IngredientModel("Bacon", 2),
-                new IngredientModel("Gehakt bal", 5),
-                new IngredientModel("Veggie burger", 4),
-                new IngredientModel("Gebakken ei", 2),
-                new IngredientModel("Sla", 2),
-                new IngredientModel("Tomaat", 2),
-                new IngredientModel("ui", 2),
-            };
+            InitializeComponent();
         }
         private void FormNew_Load(object sender, EventArgs e)
         {
@@ -48,9 +33,8 @@ namespace DeBakery
             this.Close();
         }
 
-        public void AddIngredientsToList(SandwichModel sandwich)
+        public void AddSelectedIngredients(SandwichModel sandwich)
         {
-            //moet alleen van sandwich
             foreach (IngredientModel ingredient in listBoxIngredienten.SelectedItems)
             {
                 sandwich.Ingredients.Add(ingredient);
@@ -65,13 +49,29 @@ namespace DeBakery
                 BreadType = (BreadTypeEnum)comboBoxBreadType.SelectedItem,
 
             };
-            AddIngredientsToList(sandwich);
+            AddSelectedIngredients(sandwich);
 
+            //UpdateSandwichesInStock(Bakery.SandwichesInStock);
 
-
-            Bakery.SandwichesInStock.Add(sandwich);
-            
             this.Close();
-        } 
+        }
+
+
     }
 }
+
+//Must loads at opening:
+//combo box is populated with breadtypes
+//listbox is populated with all ingredients
+//create a new sandwich
+
+//UI activities:
+//MUST give in a name for new sandwich
+//Select a bread type
+//Select ingredients to go on sandwich
+//min 1 and max 5 ingredients
+//cancel and close by pressing Cancel button
+//save sandwich into a list of InStockSandw and close by pressing Save button
+
+//cool to have
+//After clicking Save Button -> Save sandwich to stock items AND ask if they want to add another one on done

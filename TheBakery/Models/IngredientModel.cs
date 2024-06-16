@@ -21,5 +21,20 @@ namespace TheBakery.Models
         {
             return Name ;
         }
+
+        //public int GetName()
+        //{
+        //    return this.Name;
+        //}
+
+        //public int SetName()
+        //{
+        //    return this.leeftijd;
+        //}
+
+        //public int GetLeeftijd()
+        //{
+        //    return this.leeftijd;
+        //}
     }
 }
